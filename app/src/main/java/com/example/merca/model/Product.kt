@@ -1,8 +1,8 @@
 package com.example.merca.model
 
 data class Product(
-    val id: Int,
+    val id: Long,
     val name: String,
     val price: Double,
-    val imageUrl: String
+    val image_url: String
 )

@@ -28,7 +28,7 @@ class ProductAdapter(private val productList: List<Product>) :
             tvProductName.text = product.name
             tvProductPrice.text = "$${product.price}"
             Glide.with(ivProductImage.context)
-                .load(product.imageUrl)
+                .load(product.image_url)
                 .into(ivProductImage)
         }
     }

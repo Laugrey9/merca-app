@@ -1,6 +1,5 @@
 package com.example.merca.viewmodel
 
-
 import androidx.lifecycle.*
 import com.example.merca.model.Product
 import com.example.merca.network.ApiService
@@ -11,12 +10,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ProductViewModel : ViewModel() {
 
-    private val api = Retrofit.Builder()
-        .baseUrl("http://10.0.2.2:3000/") // Cambiar por tu API
+    // SIN autenticación
+    private val retrofit = Retrofit.Builder()
+        .baseUrl("https://ziiajfgkbzoqnnjgjhkh.supabase.co/rest/v1/") // termina en / ya
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-        .create(ApiService::class.java)
 
+    private val api = retrofit.create(ApiService::class.java)
     private val repository = ProductRepository(api)
 
     private val _products = MutableLiveData<List<Product>>()
